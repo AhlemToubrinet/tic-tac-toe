@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 500;
+
+}
+body{
+
+}
+main{
+
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+#main-section{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main .game-containder{
+    background-color: #352f2f;
+    height: 70%;
+    width: 40%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 0.5rem;
+}
+
+main .game-containder .box{
+    position: relative;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.box.x, .box.circle{
+    cursor: not-allowed !important;
+}
+/* styling of x */
+.box.x::after,.box.x::before{
+    background-color: black;
+}
+.game-containder.x .box:not(.x):not(.circle):hover::after,.game-containder.x .box:not(.x):not(.circle):hover::before{
+    background-color: lightgray;
+}
+.box.x::after,.box.x::before,.game-containder.x .box:not(.x):not(.circle):hover::after,.game-containder.x .box:not(.x):not(.circle):hover::before{
+    position: absolute;
+    content: '';
+    width: 10%;
+    height: 80%;
+}
+.box.x::after,.game-containder.x .box:not(.x):not(.circle):hover::after{
+    transform: rotate(45deg);
+}
+.box.x::before,.game-containder.x .box:not(.x):not(.circle):hover::before{
+    transform: rotate(-45deg);
+}
+
+/* styling of O */
+.box.circle::after,.box.circle::before,
+.game-containder.circle .box:not(.x):not(.circle):hover::after,.game-containder.circle .box:not(.x):not(.circle):hover::before{
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+}
+.box.circle::before{
+    background-color: black;
+}
+.game-containder.circle .box:not(.x):not(.circle):hover::before{
+    background-color: lightgray;
+}
+.box.circle::before,
+.game-containder.circle .box:not(.x):not(.circle):hover::before{
+    height: 75%;
+    width: 70%;
+}
+
+.box.circle::after, 
+.game-containder.circle .box:not(.x):not(.circle):hover::after{
+    background-color: white;
+    height: 55%;
+    width: 50%;
+}
+/* styling of the restart section */
+#restart{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#restart .text-container{
+    /* background-color: aqua; */
+    height: 40%;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4rem;
+}
+#restart .text-container p, .text-container p span{
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+}
+#restart .text-container button{
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    width: 8rem;
+    font-weight: bold;
+    border:none;
+    cursor: pointer;
+    box-shadow:6px 6px 10px 0px rgba(0,0,0,0.2);
+}
